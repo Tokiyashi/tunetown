@@ -40,7 +40,7 @@ const UploadedMusicItem = ({item}: Props) => {
           <span className="text-sm">{item?.artistName}</span>
         </div>
       </div>
-      <MoreOptions item={item}/>
+      <MoreOptions />
     </div>
   );
 };
