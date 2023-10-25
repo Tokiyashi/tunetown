@@ -5,7 +5,7 @@ import UserMenu from "./UserMenu";
 const Header = () => {
 
   return (
-    <div className="justify-between md:justify-end p-5 flex align-middle">
+    <div className="justify-between p-4 md:justify-end flex align-middle">
       <MobileSidebar/>
       <UserMenu/>
     </div>
