@@ -40,6 +40,7 @@ const Index = () => {
         userName: currentUser.name,
         userId: currentUser._id,
       });
+      console.log('connected to server')
     });
 
     socket.on('update room', newValue => {
