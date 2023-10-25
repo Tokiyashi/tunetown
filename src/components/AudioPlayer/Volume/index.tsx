@@ -1,15 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {wrapNumberInput} from '@/utils/inputWrappers';
 import {VolumeTypes} from '@/common/enums/volumeTypes';
+import VolumeOffRoundedIcon from '@mui/icons-material/VolumeOffRounded';
+import VolumeUpRoundedIcon from '@mui/icons-material/VolumeUpRounded';
+import VolumeDownRoundedIcon from '@mui/icons-material/VolumeDownRounded';
 
 type Props = {
   onChange: (value: number) => void;
 };
 
 const volumeIcon = new Map([
-  [VolumeTypes.Muted, <h1></h1>],
-  [VolumeTypes.Medium, <h1></h1>],
-  [VolumeTypes.High, <h1></h1>],
+  [VolumeTypes.Muted, VolumeOffRoundedIcon],
+  [VolumeTypes.Medium, VolumeDownRoundedIcon],
+  [VolumeTypes.High, VolumeUpRoundedIcon],
 ]);
 
 const Volume = ({onChange}: Props) => {
@@ -30,7 +33,7 @@ const Volume = ({onChange}: Props) => {
   const volumeSize =
     Math.floor(currentValue) === 0 ? VolumeTypes.Muted : volume;
 
-  const Icon = volumeIcon?.get(volumeSize) || <h1></h1>;
+  const Icon = volumeIcon?.get(volumeSize) || VolumeOffRoundedIcon;
 
   useEffect(() => {
     onChange(currentValue / 100);
@@ -38,7 +41,7 @@ const Volume = ({onChange}: Props) => {
 
   return (
     <div className="justify-center items-center overflow-hidden w-full h-1/5 gap-2 flex">
-      {/*<Icon className="h-full w-auto" />*/}
+      <Icon className="h-full w-auto"/>
       <input
         className="accent-main w-1/2"
         type="range"

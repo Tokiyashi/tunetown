@@ -1,4 +1,3 @@
-
 export const backendUrl =
-  'http://localhost:9000';
-export const webSocketUrl = 'https://tune-town.netlify.app:9090';
+  import.meta.env.VITE_BACKEND_URL
+export const webSocketUrl = import.meta.env.VITE_WEBSOCKETS_URL;

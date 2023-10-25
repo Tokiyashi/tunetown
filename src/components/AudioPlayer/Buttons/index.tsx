@@ -1,18 +1,25 @@
-import { RefObject, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState, store } from '@/store';
-import { setCurrentTrack } from '@/store/slices/playerSlice';
-import { goToNextTrack } from '@/utils/playerActions/goToNextTrack';
+import {RefObject, useEffect, useState} from 'react';
+import {useSelector} from 'react-redux';
+import {RootState, store} from '@/store';
+import {setCurrentTrack} from '@/store/slices/playerSlice';
+import {goToNextTrack} from '@/utils/playerActions/goToNextTrack';
 import Timeline from './Timeline';
 import Volume from '@/components/AudioPlayer/Volume';
+import {IconButton} from "@mui/material";
+import ShuffleOnRoundedIcon from '@mui/icons-material/ShuffleOnRounded';
+import SkipPreviousRoundedIcon from '@mui/icons-material/SkipPreviousRounded';
+import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
+import PauseCircleFilledRoundedIcon from "@mui/icons-material/PauseCircleFilledRounded";
+import SkipNextRoundedIcon from '@mui/icons-material/SkipNextRounded';
+import LoopRoundedIcon from '@mui/icons-material/LoopRounded';
 
 type Props = {
   audioRef: RefObject<HTMLAudioElement>;
 };
 
-const Buttons = ({ audioRef }: Props) => {
+const Buttons = ({audioRef}: Props) => {
   const [paused, setPaused] = useState(false);
-  const { audioSrc, currentTrack } = useSelector(
+  const {audioSrc, currentTrack} = useSelector(
     (state: RootState) => state.player
   );
 
@@ -23,7 +30,7 @@ const Buttons = ({ audioRef }: Props) => {
 
     setPaused(!paused);
     audioRef.current[paused ? 'play' : 'pause']();
-    store.dispatch(setCurrentTrack({ ...currentTrack, paused: !paused }));
+    store.dispatch(setCurrentTrack({...currentTrack, paused: !paused}));
   }
 
   function handleVolumeChange(volume: number) {
@@ -48,47 +55,47 @@ const Buttons = ({ audioRef }: Props) => {
     setPaused(!!currentTrack?.paused);
   }, [currentTrack?.paused]);
 
-  // const playerButtons = [
-  //   {
-  //     icon: PiShuffleBold,
-  //     action: () => {},
-  //   },
-  //   {
-  //     icon: FaBackward,
-  //     action: () => {},
-  //   },
-  //   {
-  //     icon: paused ? FaCirclePlay : FaPause,
-  //     action: handlePause,
-  //   },
-  //   {
-  //     action: handleFinishTrack,
-  //     icon: FaForward,
-  //   },
-  //   {
-  //     action: () => {},
-  //     icon: BsRepeat,
-  //   },
-  // ];
+  const playerButtons = [
+    {
+      icon: ShuffleOnRoundedIcon,
+      action: () => {
+      },
+    },
+    {
+      icon: SkipPreviousRoundedIcon,
+      action: () => {
+      },
+    },
+    {
+      icon: paused ? PlayCircleRoundedIcon : PauseCircleFilledRoundedIcon,
+      action: handlePause,
+    },
+    {
+      action: handleFinishTrack,
+      icon: SkipNextRoundedIcon,
+    },
+    {
+      action: () => {
+      },
+      icon: LoopRoundedIcon,
+    },
+  ];
 
   return (
     <div className="h-full bg-card-bg justify-between flex-col items-center w-full flex">
-      <Timeline audioRef={audioRef} />
+      <Timeline audioRef={audioRef}/>
       <div className="flex justify-between h-1/3 overflow-hidden w-5/6">
-        {/*{playerButtons.map(item => (*/}
-        {/*  <Button*/}
-        {/*    isIconOnly*/}
-        {/*    key={item.icon.toString()}*/}
-        {/*    className="p-1 h-full w-1/4 "*/}
-        {/*    radius="full"*/}
-        {/*    variant="light"*/}
-        {/*    onClick={item.action}*/}
-        {/*  >*/}
-        {/*    {<item.icon className="w-full h-full" />}*/}
-        {/*  </Button>*/}
-        {/*))}*/}
+        {playerButtons.map(item => (
+          <IconButton
+            sx={{width: '20%'}}
+            key={item.icon.toString()}
+            onClick={item.action}
+          >
+            {<item.icon color='primary'/>}
+          </IconButton>
+        ))}
       </div>
-      <Volume onChange={handleVolumeChange} />
+      <Volume onChange={handleVolumeChange}/>
     </div>
   );
 };
