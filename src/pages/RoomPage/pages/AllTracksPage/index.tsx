@@ -1,11 +1,11 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {RootState} from '@/store';
-import UploadedMusicItem from '@/components/UploadedMusicItem';
 import AddNewTrack from './AddNewTrack';
 import {useIsAdmin} from '@/utils/hooks/useIsRoomAdmin';
 import {Button} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import MusicList from "@/components/MusicList";
 
 const AllTracksPage = () => {
   const {room} = useSelector((state: RootState) => state.room);
@@ -20,9 +20,7 @@ const AllTracksPage = () => {
       </div>
       <div className="flex h-full flex-col justify-between">
         <div className="w-full flex-col p-2 gap-3 h-full rounded-2xl overflow-auto flex">
-          {room.allTracks.map((item, index) => (
-            <UploadedMusicItem item={item} key={index}/>
-          ))}
+          <MusicList disablePlayPause items={room.allTracks}/>
         </div>
         {isAdmin && <AddNewTrack/>}
       </div>

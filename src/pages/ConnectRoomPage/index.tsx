@@ -18,19 +18,19 @@ const Room = () => {
       creatorId: currentUser?._id,
     });
     const {_id} = request.data;
-    navigate(`/room/${_id}`);
+    navigate(`/room/${_id}/getting-started`);
   }
 
   return (
     <div className="h-full w-full flex justify-center items-start">
-      <div className="w-full md:flex-row flex-col flex items-center gap-6">
+      <div className="w-full md:flex-row md:w-2/3 flex-col flex items-center gap-6">
         <div className="flex w-1/2 flex-col h-full gap-4 bg-card-bg rounded-2xl">
           <img
             alt="Band"
             src={theBandParty}
             className="rounded-2xl flex w-full h-full"
           />
-          <Button className="w-full" onClick={handleCreateRoom}>
+          <Button variant='contained' className="w-full" onClick={handleCreateRoom}>
             <h2> Создать новую комнату </h2>
           </Button>
         </div>
@@ -41,7 +41,7 @@ const Room = () => {
             src={theBandMusician}
             className="rounded-2xl flex w-full h-full"
           />
-          <Button className="w-full" onClick={handleCreateRoom}>
+          <Button variant='contained' className="w-full" onClick={handleCreateRoom}>
             <h2> Присоединиться к существующей комнате </h2>
           </Button>
         </div>

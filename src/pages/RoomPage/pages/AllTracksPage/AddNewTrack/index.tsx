@@ -44,14 +44,14 @@ const AddNewTrack = () => {
           className="flex w-3/5"
           onChange={wrapTextInput(setSearch)}
         />
-        <Button className="w-2/5 flex" onClick={handleAddTrack}>
-          <p>трек из Deezer (не будет в реальном проекте)</p>
+        <Button onClick={handleAddTrack}>
+          трек из Deezer
         </Button>
       </div>
-      <div
-        className="gap-2 p-3 border-dashed max-h-24 border-2 border-main rounded-lg justify-center flex-col w-full bg-card-bg flex items-center">
-        <span className="text-gray-300">Перетащите файл сюда</span>
-      </div>
+      {/*<div*/}
+      {/*  className="gap-2 p-3 border-dashed max-h-24 border-2 border-main rounded-lg justify-center flex-col w-full bg-card-bg flex items-center">*/}
+      {/*  <span className="text-gray-300">Перетащите файл сюда</span>*/}
+      {/*</div>*/}
     </div>
   );
 };

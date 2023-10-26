@@ -1,21 +1,21 @@
-'use client';
 import React, {useState} from 'react';
 import {wrapTextInput} from '@/utils/inputWrappers';
 import axios from 'axios';
 import {backendUrl} from '@/common/constants/url';
 import {store} from '@/store';
 import {setUser} from '@/store/slices/userSlice';
-import {Button, Link, TextField} from "@mui/material";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {Button, TextField} from "@mui/material";
 
-const LoginPage = () => {
-  const {from} = useParams()
+const RegistrationPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const navigation = useNavigate()
 
   async function handleSubmit() {
-    const result = await axios.post(backendUrl + '/users/login', {
+    const result = await axios.post(backendUrl + '/users', {
+      name,
       email,
       password,
     });
@@ -23,19 +23,20 @@ const LoginPage = () => {
     setEmail('');
     setPassword('');
     store.dispatch(setUser(result.data));
-    navigate(`/room/${from?.toString()}`);
+    navigation('/room');
   }
 
   return (
     <div className="h-full flex items-center gap-7 flex-col">
       <h1 className="text-4xl">Авторизация</h1>
-      <form onSubmit={handleSubmit} className="w-full md:w-1/3 bg-card-bg p-5 rounded-2xl flex gap-5 flex-col">
+      <form onSubmit={handleSubmit} className="w-1/3 bg-card-bg rounded-2xl p-4 flex gap-5 flex-col">
         <label className="text-xl flex flex-col">
+          Имя
+          <TextField value={name} onChange={wrapTextInput(setName)} type="email"/>
+        </label>
+        <label className="text-xl">
           Адрес электронной почты
           <TextField
-            sx={{input: {color: 'white'}}}
-            color='primary'
-            variant='outlined'
             value={email}
             onChange={wrapTextInput(setEmail)}
             type="email"
@@ -44,19 +45,18 @@ const LoginPage = () => {
         <label className="text-xl flex flex-col">
           Пароль
           <TextField
-            sx={{input: {color: 'white'}}}
-            color='primary'
-            variant='outlined'
             value={password}
             onChange={wrapTextInput(setPassword)}
             type="password"
           />
         </label>
-        <Button variant='contained' onClick={handleSubmit}>Войти</Button>
-        <Link href="../registration">Создать чела</Link>
+        <Button variant='contained' onClick={handleSubmit}>Создать чела</Button>
+        <div className="flex gap-4">
+          Уже есть чел?<Link to="../login">Войти</Link>
+        </div>
       </form>
     </div>
   );
 };
 
-export default LoginPage
+export default RegistrationPage;

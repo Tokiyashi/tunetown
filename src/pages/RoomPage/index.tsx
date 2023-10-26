@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {RootState, store} from '@/store';
 import axios from 'axios';
@@ -12,11 +12,17 @@ import {Typography} from "@mui/material";
 const Index = () => {
   const {id} = useParams();
   const {currentUser} = useSelector((state: RootState) => state.user);
+  const {allTracks, _id} = useSelector((state: RootState) => state.room.room);
   const navigate = useNavigate()
+  const [error, setError] = useState(false)
 
   async function fetchRoom(id: string) {
-    const response = await axios.get(backendUrl + `/rooms/${id}`);
-    store.dispatch(getRoom(response.data));
+    try {
+      const response = await axios.get(backendUrl + `/rooms/${id}`);
+      store.dispatch(getRoom(response.data));
+    } catch (e) {
+      setError(true)
+    }
   }
 
   useEffect(() => {
@@ -50,8 +56,9 @@ const Index = () => {
       store.dispatch(getRoom(newValue));
     });
 
-    navigate('./main')
-
+    if (!allTracks.length && _id) {
+      navigate('./getting-started');
+    }
     // window.addEventListener('beforeunload', ev => {
     //   ev.preventDefault();
     //   socket.emit('leave room', {
@@ -71,7 +78,7 @@ const Index = () => {
   }, [id, currentUser._id]);
 
   return <>
-    <Typography color='success'>Связь установлена</Typography>
+    {error ? <Typography>Кажется,что-то пошло не так...</Typography> : null}
     <Outlet/>
   </>;
 };

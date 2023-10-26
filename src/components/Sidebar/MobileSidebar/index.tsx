@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Buttons from '@/components/Sidebar/Buttons';
-import AudioPlayer from '@/components/AudioPlayer';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import {IconButton} from "@mui/material";
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
@@ -35,7 +34,6 @@ const MobileSidebar = () => {
             <h1 className="text-2xl">Tune Town</h1>
             <Buttons/>
           </div>
-          <AudioPlayer/>
         </div>
       )}
     </div>

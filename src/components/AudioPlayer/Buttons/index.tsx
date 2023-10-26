@@ -85,10 +85,10 @@ const Buttons = ({audioRef}: Props) => {
     <div className="h-full bg-card-bg justify-between flex-col items-center w-full flex">
       <Timeline audioRef={audioRef}/>
       <div className="flex justify-between h-1/3 overflow-hidden w-5/6">
-        {playerButtons.map(item => (
+        {playerButtons.map((item, index) => (
           <IconButton
             sx={{width: '20%'}}
-            key={item.icon.toString()}
+            key={index}
             onClick={item.action}
           >
             {<item.icon color='primary'/>}

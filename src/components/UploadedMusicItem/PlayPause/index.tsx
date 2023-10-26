@@ -15,13 +15,14 @@ const PlayPause = ({
                      onPause,
                      isPausedTrack,
                    }: Props) => {
+
   return currentlyOpened && !isPausedTrack ? (
     <IconButton onClick={onPause}>
-      <PlayCircleRoundedIcon color='primary'/>
+      <PauseCircleFilledRoundedIcon color='primary'/>
     </IconButton>
   ) : (
     <IconButton onClick={onPlay}>
-      <PauseCircleFilledRoundedIcon color='primary'/>
+      <PlayCircleRoundedIcon color='primary'/>
     </IconButton>
   );
 };

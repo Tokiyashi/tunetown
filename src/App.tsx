@@ -9,6 +9,10 @@ import MainPage from "@/pages/RoomPage/pages/MainPage";
 import ConnectRoomPage from "@/pages/ConnectRoomPage";
 import AllTracksPage from "@/pages/RoomPage/pages/AllTracksPage";
 import {useIsLoggedUser} from "@/utils/hooks/useIsLoggedUser";
+import RegistrationPage from "@/pages/RegistrationPage";
+import MyRoomsPage from "@/pages/MyRoomsPage";
+import TrackQueuePage from "@/pages/RoomPage/pages/TrackQueuePage";
+import StartRoomPage from "@/pages/RoomPage/pages/StartRoomPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage/>
+      },
+      {
+        path: "my-rooms",
+        element: <MyRoomsPage/>
+      },
+      {
+        path: "registration",
+        element: <RegistrationPage/>
       },
       {
         path: "room",
@@ -33,7 +45,15 @@ const router = createBrowserRouter([
         }, {
           path: 'main',
           element: <MainPage/>
-        }]
+        }, {
+          path: 'track-queue',
+          element: <TrackQueuePage/>
+        },
+          {
+            path: 'getting-started',
+            element: <StartRoomPage/>
+          },
+        ]
       }
     ]
   },
