@@ -3,6 +3,7 @@ import {RootState} from '@/store';
 import React from 'react';
 import UploadedMusicItem from '@/components/UploadedMusicItem';
 import MusicList from "@/components/MusicList";
+import SuggestTrack from "./SuggestTrack";
 
 const TrackList = () => {
   const {room} = useSelector((state: RootState) => state.room);
@@ -20,6 +21,7 @@ const TrackList = () => {
               <MusicList disablePlayPause items={room.trackQueue}/>
           </>
       }
+      <SuggestTrack/>
     </div>
   )
     ;

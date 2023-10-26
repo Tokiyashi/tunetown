@@ -4,6 +4,10 @@ import React from 'react';
 const menuItems = {
   ['Меню']: [
     {
+      label: 'Главная',
+      href: '/',
+    },
+    {
       label: 'Начать слушать вместе!',
       href: '/room',
     },
@@ -14,8 +18,8 @@ const menuItems = {
       href: '/my-rooms',
     },
     {
-      label: 'Очередь воспроизведения',
-      href: '/tracklist',
+      label: 'Плейлисты',
+      href: '/playlists',
     },
   ],
   ['Общее']: [

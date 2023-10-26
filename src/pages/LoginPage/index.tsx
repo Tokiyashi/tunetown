@@ -23,7 +23,7 @@ const LoginPage = () => {
     setEmail('');
     setPassword('');
     store.dispatch(setUser(result.data));
-    navigate(`/room/${from?.toString()}`);
+    navigate(`/room/${from || ''}`);
   }
 
   return (

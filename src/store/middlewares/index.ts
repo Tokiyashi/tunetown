@@ -17,7 +17,7 @@ export const roomMiddleware: Middleware =
       finishCurrentTrack,
     ];
     if (actionTypes.map(item => item.type).includes(action.type)) {
-      updateRoom(api.getState().room.room);
+      updateRoom({...api.getState().room.room});
     }
 
     return result;

@@ -26,6 +26,7 @@ const Timeline = ({audioRef}: Props) => {
   return (
     <div className="w-full flex flex-col">
       <input
+        readOnly
         type='range'
         value={currentTimeProgress || 0}
       />

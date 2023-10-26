@@ -30,7 +30,7 @@ const UploadedMusicItem = ({item, disablePlayPause}: Props) => {
       <div className="flex gap-4 max-w-full items-center  overflow-hidden">
         {isAdmin && !disablePlayPause && (
           <PlayPause
-            isPausedTrack={isPausedTrack}
+            isPausedTrack={isPausedTrack || !playerTrack}
             onPause={pause}
             onPlay={play}
             currentlyOpened={currentTrack?._id === item._id}
@@ -42,7 +42,7 @@ const UploadedMusicItem = ({item, disablePlayPause}: Props) => {
           </span>
           <span className="text-sm">{item?.artistName}</span>
         </div>
-        {currentTrack?._id === item._id && <Typography color='green'>Сейчас играет!</Typography>}
+        {item?._id && currentTrack?._id === item._id && <Typography color='green'>Сейчас играет!</Typography>}
       </div>
       <MoreOptions/>
     </div>

@@ -52,7 +52,7 @@ const RegistrationPage = () => {
         </label>
         <Button variant='contained' onClick={handleSubmit}>Создать чела</Button>
         <div className="flex gap-4">
-          Уже есть чел?<Link to="../login">Войти</Link>
+          Уже есть чел?<Link to="/login">Войти</Link>
         </div>
       </form>
     </div>

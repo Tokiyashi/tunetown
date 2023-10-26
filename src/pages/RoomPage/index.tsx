@@ -35,16 +35,13 @@ const Index = () => {
 
 
   useEffect(() => {
-    if (!currentUser._id) {
-      return;
-    }
 
     const socket = io(webSocketUrl);
     socket.on('connect', () => {
       socket.emit('join room', {
         roomId: id,
-        userName: currentUser.name,
-        userId: currentUser._id,
+        userName: currentUser.name || 'guest',
+        userId: currentUser._id || 'guestId',
       });
       console.log('connected to server')
     });
@@ -54,6 +51,7 @@ const Index = () => {
         return;
       }
       store.dispatch(getRoom(newValue));
+      console.log(newValue)
     });
 
     if (!allTracks.length && _id) {
