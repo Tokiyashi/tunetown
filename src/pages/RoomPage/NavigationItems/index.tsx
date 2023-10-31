@@ -3,7 +3,7 @@ import NavItem from './NavItem';
 
 const NavigationItems = () => {
   return (
-    <div className="flex w-2/3">
+    <div className="flex w-full">
       <NavItem label="Все треки" href={`../all-tracks`}/>
     </div>
   );

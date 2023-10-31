@@ -1,11 +1,11 @@
 import React from 'react';
-import {Typography} from "@mui/material";
+import PageWithTitle from "@/components/PageWithTitle";
 
 const PlaylistsPage = () => {
   return (
-    <Typography>
-      Work in progress
-    </Typography>
+    <PageWithTitle title='Плейлисты'>
+      фыв
+    </PageWithTitle>
   );
 };
 

@@ -6,14 +6,16 @@ import {setCurrentTrack} from '@/store/slices/playerSlice';
 import {useSelector} from 'react-redux';
 import MoreOptions from './MoreOptions';
 import {useIsAdmin} from '@/utils/hooks/useIsRoomAdmin';
-import {Typography} from "@mui/material";
+import {Button, Typography} from "@mui/material";
+import {addTrackToQueue} from "@/store/slices/roomSlice";
 
 type Props = {
   disablePlayPause?: boolean;
   item: UploadedTrack;
+  allowSuggest?: boolean;
 };
 
-const UploadedMusicItem = ({item, disablePlayPause}: Props) => {
+const UploadedMusicItem = ({item, disablePlayPause, allowSuggest}: Props) => {
   const play = () =>
     store.dispatch(setCurrentTrack({...item, paused: false}));
   const pause = () =>
@@ -44,6 +46,7 @@ const UploadedMusicItem = ({item, disablePlayPause}: Props) => {
         </div>
         {item?._id && currentTrack?._id === item._id && <Typography color='green'>Сейчас играет!</Typography>}
       </div>
+      {allowSuggest && <Button onClick={() => store.dispatch(addTrackToQueue(item))}>Предложить трек!</Button>}
       <MoreOptions/>
     </div>
   );

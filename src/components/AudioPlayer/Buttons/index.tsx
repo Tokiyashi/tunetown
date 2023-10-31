@@ -6,12 +6,10 @@ import {goToNextTrack} from '@/utils/playerActions/goToNextTrack';
 import Timeline from './Timeline';
 import Volume from '@/components/AudioPlayer/Volume';
 import {IconButton} from "@mui/material";
-import ShuffleOnRoundedIcon from '@mui/icons-material/ShuffleOnRounded';
 import SkipPreviousRoundedIcon from '@mui/icons-material/SkipPreviousRounded';
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import PauseCircleFilledRoundedIcon from "@mui/icons-material/PauseCircleFilledRounded";
 import SkipNextRoundedIcon from '@mui/icons-material/SkipNextRounded';
-import LoopRoundedIcon from '@mui/icons-material/LoopRounded';
 
 type Props = {
   audioRef: RefObject<HTMLAudioElement>;
@@ -57,11 +55,6 @@ const Buttons = ({audioRef}: Props) => {
 
   const playerButtons = [
     {
-      icon: ShuffleOnRoundedIcon,
-      action: () => {
-      },
-    },
-    {
       icon: SkipPreviousRoundedIcon,
       action: () => {
       },
@@ -74,11 +67,6 @@ const Buttons = ({audioRef}: Props) => {
       action: handleFinishTrack,
       icon: SkipNextRoundedIcon,
     },
-    {
-      action: () => {
-      },
-      icon: LoopRoundedIcon,
-    },
   ];
 
   return (
@@ -87,7 +75,7 @@ const Buttons = ({audioRef}: Props) => {
       <div className="flex justify-between h-1/3 overflow-hidden w-5/6">
         {playerButtons.map((item, index) => (
           <IconButton
-            sx={{width: '20%'}}
+            sx={{width: '30%'}}
             key={index}
             onClick={item.action}
           >

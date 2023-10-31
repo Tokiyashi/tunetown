@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { Room } from '@/common/types/room';
-import { DEFAULT_ROOM } from '@/common/constants/defaultRoom';
+import {createSlice} from '@reduxjs/toolkit';
+import {Room} from '@/common/types/room';
+import {DEFAULT_ROOM} from '@/common/constants/defaultRoom';
 
 export type RoomState = {
   room: Room;
@@ -23,6 +23,9 @@ export const roomSlice = createSlice({
     // finishCurrentTrack: (state) => {
     //   state.queue.shift()
     // },
+    addTrackToQueue: (state, action) => {
+      state.room.trackQueue.unshift(action.payload);
+    },
     getRoom: (state, action) => {
       state.room = action.payload;
     },
@@ -49,5 +52,6 @@ export const {
   setCurrentTrack,
   startRoom,
   finishCurrentTrack,
+  addTrackToQueue
 } = roomSlice.actions;
 export default roomSlice.reducer;

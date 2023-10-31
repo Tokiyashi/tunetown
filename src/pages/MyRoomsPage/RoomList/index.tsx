@@ -5,6 +5,7 @@ import {Room} from '@/common/types/room';
 import {useSelector} from 'react-redux';
 import {RootState} from '@/store';
 import RoomItem from './RoomItem';
+import {deleteRoom} from "@/api/room";
 
 async function getRooms(userId: string) {
   const response = await axios.get(backendUrl + '/rooms?userId=' + userId);
@@ -26,10 +27,16 @@ const RoomList = () => {
     void init();
   }, [currentUser._id]);
 
+  async function handleDelete(id: string) {
+    await deleteRoom(id);
+    await init();
+  }
+
+
   return (
     <div className="flex flex-col gap-3">
       {rooms.map(item => (
-        <RoomItem item={item} key={item._id}/>
+        <RoomItem item={item} onDelete={handleDelete} key={item._id}/>
       ))}
     </div>
   );

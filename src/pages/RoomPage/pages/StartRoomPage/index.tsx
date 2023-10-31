@@ -21,7 +21,7 @@ const StartRoomPage = () => {
   return (
     <div className='flex flex-col gap-2 justify-between h-full'>
       <div>
-        <Typography>С заносиком! очень ништяк что ты решил использовать тюн таун, собери для начала свой
+        <Typography>собери для начала свой
           треклист</Typography>
         <MusicList items={allTracks}/>
       </div>
@@ -29,10 +29,7 @@ const StartRoomPage = () => {
       <div>
         <AddNewTrack/>
         <Button onClick={handleStartRoom} fullWidth disabled={!allTracks.length} variant='contained'>Всё
-          готово,
-          начать наслаждаться
-          качественным
-          айти продуктом!</Button>
+          готово</Button>
       </div>
     </div>
   );

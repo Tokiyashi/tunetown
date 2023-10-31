@@ -1,12 +1,14 @@
 import React from 'react';
 import {Room} from '@/common/types/room';
 import {Link} from "react-router-dom";
+import {Button} from "@mui/material";
 
 type Props = {
   item: Room;
+  onDelete: (id: string) => void;
 };
 
-const RoomItem = ({item}: Props) => {
+const RoomItem = ({item, onDelete}: Props) => {
   const listeningNow = item.usersOnline.length;
 
   return (
@@ -19,7 +21,10 @@ const RoomItem = ({item}: Props) => {
           </span>
         )}
       </div>
-      <Link to={'/room/' + item._id}>Перейти</Link>
+      <div className='flex gap-2 items-center'>
+        <Link to={'/room/' + item._id}>Перейти</Link>
+        <Button color='error' onClick={() => onDelete(item._id)}>Удалить</Button>
+      </div>
     </div>
   );
 };

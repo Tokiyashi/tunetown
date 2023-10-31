@@ -17,6 +17,7 @@ import {CssBaseline, ThemeProvider, Typography} from "@mui/material";
 import StoreProvider from "@/store/storeProvider";
 import {theme} from "@/utils/theme";
 import PlaylistsPage from "@/pages/PlayListsPage";
+import SuggestTrackPage from "@/pages/RoomPage/pages/SuggestTrackPage";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,9 @@ const router = createBrowserRouter([
         children: [{
           path: 'all-tracks',
           element: <AllTracksPage/>
+        },{
+          path: 'suggest',
+          element: <SuggestTrackPage/>
         }, {
           path: 'main',
           element: <MainPage/>
