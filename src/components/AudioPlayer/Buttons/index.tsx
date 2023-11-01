@@ -25,10 +25,17 @@ const Buttons = ({audioRef}: Props) => {
     if (!audioRef?.current) {
       return;
     }
-
+    
     setPaused(!paused);
     audioRef.current[paused ? 'play' : 'pause']();
     store.dispatch(setCurrentTrack({...currentTrack, paused: !paused}));
+  }
+
+  function handleCurrentTimeChange(currentTime: number) {
+    if (!audioRef.current) {
+      return;
+    }
+    audioRef.current.currentTime = currentTime;
   }
 
   function handleVolumeChange(volume: number) {
@@ -71,7 +78,7 @@ const Buttons = ({audioRef}: Props) => {
 
   return (
     <div className="h-full bg-card-bg justify-between flex-col items-center w-full flex">
-      <Timeline audioRef={audioRef}/>
+      <Timeline audioRef={audioRef} onChange={handleCurrentTimeChange}/>
       <div className="flex justify-between h-1/3 overflow-hidden w-5/6">
         {playerButtons.map((item, index) => (
           <IconButton
