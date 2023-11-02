@@ -2,7 +2,6 @@ import "./index.css"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import LoginPage from "@/pages/LoginPage"
 import React from "react"
-import PageWrapper from "@/components/PageWrapper"
 import NotFoundPage from "@/pages/NotFoundPage"
 import RoomPage from "@/pages/RoomPage"
 import MainPage from "@/pages/RoomPage/pages/MainPage"
@@ -19,11 +18,12 @@ import { theme } from "@/utils/theme"
 import PlaylistsPage from "@/pages/PlayListsPage"
 import SuggestTrackPage from "@/pages/RoomPage/pages/SuggestTrackPage"
 import PlaylistPage from "@/pages/PlaylistPage"
+import MainWrapper from "@/components/MainWrapper"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PageWrapper />,
+    element: <MainWrapper />,
     errorElement: <NotFoundPage />,
     children: [
       {

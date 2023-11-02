@@ -4,6 +4,7 @@ import { backendUrl } from "@/common/constants/url"
 import { store } from "@/store"
 import PlaylistItem from "./PlaylistItem"
 import { Playlist } from "@/common/types/playlist"
+import Container from "./styles/Container"
 
 const List = () => {
   const [playlists, setPlaylists] = useState<Playlist[]>([])
@@ -23,11 +24,11 @@ const List = () => {
   }, [])
 
   return (
-    <div className="gap-3 flex flex-col">
+    <Container>
       {playlists.map((item) => (
         <PlaylistItem item={item} key={item._id} />
       ))}
-    </div>
+    </Container>
   )
 }
 

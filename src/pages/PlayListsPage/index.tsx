@@ -1,11 +1,11 @@
 import React from "react"
-import PageWithTitle from "@/components/PageWithTitle"
 import { backendUrl } from "@/common/constants/url"
 import axios from "axios"
 import { Button } from "@mui/material"
 import { nanoid } from "@reduxjs/toolkit"
 import { store } from "@/store"
 import List from "./List"
+import Page from "@/components/Page"
 
 const PlaylistsPage = () => {
   async function handleCreatePlaylist() {
@@ -17,12 +17,12 @@ const PlaylistsPage = () => {
   }
 
   return (
-    <PageWithTitle title="Плейлисты">
+    <Page title="Плейлисты">
       <Button variant="contained" onClick={handleCreatePlaylist}>
         Создать плейлист
       </Button>
       <List />
-    </PageWithTitle>
+    </Page>
   )
 }
 

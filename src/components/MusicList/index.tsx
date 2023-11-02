@@ -14,7 +14,7 @@ const MusicList = ({ items, disablePlayPause, allowSuggest }: Props) => {
       {items?.map((item, index) => (
         <UploadedMusicItem
           allowSuggest={allowSuggest}
-          disablePlayPause={disablePlayPause}
+          hidePlayPause={disablePlayPause}
           key={index}
           item={item}
         />

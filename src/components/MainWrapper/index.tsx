@@ -3,7 +3,7 @@ import Header from "@/components/Header"
 import { Outlet } from "react-router-dom"
 import DefaultSidebar from "@/components/Sidebar/DefaultSidebar"
 
-const PageWrapper = () => {
+const MainWrapper = () => {
   return (
     <div className="min-h-screen overflow-hidden max-h-screen text-white flex min-w-screen bg-app-bg">
       <DefaultSidebar />
@@ -17,4 +17,4 @@ const PageWrapper = () => {
   )
 }
 
-export default PageWrapper
+export default MainWrapper

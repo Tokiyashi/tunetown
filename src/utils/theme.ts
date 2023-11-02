@@ -8,6 +8,13 @@ export const theme = createTheme({
     primary: {
       main: "#7c39ee",
     },
+    background: {
+      default: "#24242C",
+      paper: "#24242C",
+    },
+    secondary: {
+      main: "#ffffff",
+    },
   },
   components: {
     MuiInputBase: {

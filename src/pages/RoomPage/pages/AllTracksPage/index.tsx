@@ -14,7 +14,7 @@ const AllTracksPage = () => {
     <RoomPageWrapper title="Все треки">
       <div className="flex h-full flex-col justify-between">
         <div className="w-full flex-col p-2 gap-3 h-full rounded-2xl overflow-auto flex">
-          <MusicList disablePlayPause items={room.allTracks} />
+          <MusicList disablePlayPause={!isAdmin} items={room.allTracks} />
         </div>
         {isAdmin && <AddNewTrack />}
       </div>

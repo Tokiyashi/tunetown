@@ -8,13 +8,17 @@ type Props = {
   onPause: () => void
   isPausedTrack: boolean
   currentlyOpened: boolean
+  hidden?: boolean
 }
 const PlayPause = ({
   currentlyOpened,
   onPlay,
   onPause,
+  hidden,
   isPausedTrack,
 }: Props) => {
+  if (hidden) return <></>
+
   return currentlyOpened && !isPausedTrack ? (
     <IconButton onClick={onPause}>
       <PauseCircleFilledRoundedIcon color="primary" />

@@ -7,6 +7,7 @@ import { getRoom } from "@/store/slices/roomSlice"
 import { io } from "socket.io-client"
 import { Outlet, useNavigate, useParams } from "react-router-dom"
 import { Typography } from "@mui/material"
+import { DEFAULT_ROOM } from "@/common/constants/defaultRoom"
 
 const Index = () => {
   const { id } = useParams()
@@ -63,6 +64,7 @@ const Index = () => {
     // });
 
     return () => {
+      store.dispatch(getRoom(DEFAULT_ROOM))
       socket.off("connect")
       socket.off("disconnect")
       socket.emit("leave room", {

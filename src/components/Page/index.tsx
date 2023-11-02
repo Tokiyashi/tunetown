@@ -6,13 +6,13 @@ type Props = {
   children: React.ReactNode
 }
 
-const PageWithTitle = ({ children, title }: Props) => {
+const Page = ({ children, title }: Props) => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex gap-3 flex-col w-full">
       <Typography fontSize="1.6rem">{title}</Typography>
       {children}
     </div>
   )
 }
 
-export default PageWithTitle
+export default Page
