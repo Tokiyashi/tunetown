@@ -1,12 +1,12 @@
-import React from 'react';
-import NavItem from './NavItem';
+import React from "react"
+import NavItem from "./NavItem"
 
 const NavigationItems = () => {
   return (
     <div className="flex w-full">
-      <NavItem label="Все треки" href={`../all-tracks`}/>
+      <NavItem label="Все треки" href={`../all-tracks`} />
     </div>
-  );
-};
+  )
+}
 
-export default NavigationItems;
+export default NavigationItems

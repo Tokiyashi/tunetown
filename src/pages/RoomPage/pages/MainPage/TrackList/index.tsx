@@ -1,30 +1,29 @@
-import {useSelector} from 'react-redux';
-import {RootState} from '@/store';
-import React from 'react';
-import UploadedMusicItem from '@/components/UploadedMusicItem';
-import MusicList from "@/components/MusicList";
-import SuggestTrack from "./SuggestTrack";
+import { useSelector } from "react-redux"
+import { RootState } from "@/store"
+import React from "react"
+import UploadedMusicItem from "@/components/UploadedMusicItem"
+import MusicList from "@/components/MusicList"
+import SuggestTrack from "./SuggestTrack"
 
 const TrackList = () => {
-  const {room} = useSelector((state: RootState) => state.room);
+  const { room } = useSelector((state: RootState) => state.room)
   return (
     <div className="flex gap-2 h-full justify-start flex-col w-full md:w-1/3">
       {room.currentTrack && (
         <>
           <span>Сейчас играет:</span>
-          <UploadedMusicItem item={room.currentTrack}/>
+          <UploadedMusicItem item={room.currentTrack} />
         </>
       )}
-      {!!room.trackQueue.length &&
-          <>
-              <span>Очередь воспроизведения</span>
-              <MusicList disablePlayPause items={room.trackQueue}/>
-          </>
-      }
-      <SuggestTrack/>
+      {!!room.trackQueue.length && (
+        <>
+          <span>Очередь воспроизведения</span>
+          <MusicList disablePlayPause items={room.trackQueue} />
+        </>
+      )}
+      <SuggestTrack />
     </div>
   )
-    ;
-};
+}
 
-export default TrackList;
+export default TrackList

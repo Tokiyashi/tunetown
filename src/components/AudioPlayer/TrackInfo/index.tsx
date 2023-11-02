@@ -1,10 +1,10 @@
-import React from 'react';
-import { UploadedTrack } from '@/common/types/musicItem';
-import { responsiveText } from '@/utils/mixins/responsiveText';
+import React from "react"
+import { UploadedTrack } from "@/common/types/musicItem"
+import { responsiveText } from "@/utils/mixins/responsiveText"
 
 type Props = {
-  currentTrack: UploadedTrack;
-};
+  currentTrack: UploadedTrack
+}
 const TrackInfo = ({ currentTrack }: Props) => {
   return (
     <div className="h-full items-center justify-center w-full flex gap-2">
@@ -21,7 +21,7 @@ const TrackInfo = ({ currentTrack }: Props) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TrackInfo;
+export default TrackInfo

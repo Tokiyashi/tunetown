@@ -1,22 +1,19 @@
-import React from 'react';
-import {Button, Link} from "@mui/material";
-import {RootState, store} from "@/store";
-import {setUser} from "@/store/slices/userSlice";
-import {DEFAULT_USER} from "@/common/constants/defaultUser";
-import {useSelector} from "react-redux";
+import React from "react"
+import { Button, Link } from "@mui/material"
+import { RootState, store } from "@/store"
+import { setUser } from "@/store/slices/userSlice"
+import { DEFAULT_USER } from "@/common/constants/defaultUser"
+import { useSelector } from "react-redux"
 
 const UserMenu = () => {
-  const {currentUser} = useSelector((state: RootState) => state.user);
-
+  const { currentUser } = useSelector((state: RootState) => state.user)
 
   return (
     <>
       {currentUser._id ? (
         <div className="flex items-center gap-4">
           <h2>{currentUser.name}</h2>
-          <Button
-            onClick={() => store.dispatch(setUser(DEFAULT_USER))}
-          >
+          <Button onClick={() => store.dispatch(setUser(DEFAULT_USER))}>
             Выйти
           </Button>
         </div>
@@ -24,7 +21,7 @@ const UserMenu = () => {
         <Link href="/login">Войти</Link>
       )}
     </>
-  );
-};
+  )
+}
 
-export default UserMenu;
+export default UserMenu

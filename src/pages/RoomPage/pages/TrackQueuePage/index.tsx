@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react"
 
 const TrackQueuePage = () => {
   return (
     <div>
       <h1>TrackQueuePage</h1>
     </div>
-  );
-};
+  )
+}
 
-export default TrackQueuePage;
+export default TrackQueuePage
