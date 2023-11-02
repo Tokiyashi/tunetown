@@ -9,7 +9,7 @@ const RoomMusicList = () => {
   return (
     <div className="w-full rounded-2xl overflow-auto flex h-min justify-start items-center flex-col gap-2">
       {trackQueue?.map((item, index) => (
-        <UploadedMusicItem disablePlayPause key={index} item={item} />
+        <UploadedMusicItem key={index} item={item} />
       ))}
     </div>
   )
