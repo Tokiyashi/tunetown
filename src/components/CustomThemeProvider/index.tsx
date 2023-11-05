@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 const CustomeThemeProvider = ({children}: {children: React.ReactNode}) => {
   const { mode } = useSelector((state: RootState) => state.mode)
-  const theme = createTheme(getTheme(mode));
+  const theme = useMemo(() => createTheme(getTheme(mode)), [mode]);
 
   return (
     <ThemeProvider theme={theme}>

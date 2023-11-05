@@ -1,13 +1,13 @@
 import { PaletteMode } from "@mui/material"
-import { ThemeMode } from "@/common/enums/themeMode"
 
-const theme = new Map([
-  [ThemeMode.DarkTheme, {
-    typography: {
-      fontFamily: '"Comfortaa", cursive',
-    },
-    palette: {
-      mode: ThemeMode.DarkTheme,
+export const getTheme = (mode: PaletteMode) => ({
+  typography: {
+    fontFamily: '"Comfortaa", cursive',
+  },
+  palette: {
+    mode,
+    ...(mode === "dark")
+    ? {
       primary: {
         main: "#7c39ee",
       },
@@ -16,83 +16,42 @@ const theme = new Map([
         paper: "#24242C",
       },
       secondary: {
-        main: "#ffffff",
+          main: "#ffffff",
       },
-    },
-    components: {
-      MuiInputBase: {
-        styleOverrides: {
-          root: {
-            "&.Mui-disabled": {
-              backgroundColor: "#e4e4e4",
-            },
-          },
-        },
-      },
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            "& .MuiInputBase-input": {
-              color: "white",
-            },
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "#7e7e7e",
-              },
-              "&:hover fieldset": {
-                borderColor: "#7c39ee",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#7c39ee",
-              },
-            },
-          },
-        },
-      },
-    },
-  }],
+    }
+    : {
 
-  [ThemeMode.LightTheme, {
-    typography: {
-      fontFamily: '"Comfortaa", cursive',
-    },
-    palette: {
-      mode: ThemeMode.LightTheme,
-    },
-    components: {
-      MuiInputBase: {
-        styleOverrides: {
-          root: {
-            "&.Mui-disabled": {
-              backgroundColor: "#e4e4e4",
-            },
+    }
+  },
+  components: {
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          "&.Mui-disabled": {
+            backgroundColor: "#e4e4e4",
           },
         },
       },
-      MuiTextField: {
-        styleOverrides: {
-          root: {
-            "& .MuiInputBase-input": {
-              color: "white",
+    },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiInputBase-input": {
+            color: "white",
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "#7e7e7e",
             },
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": {
-                borderColor: "#7e7e7e",
-              },
-              "&:hover fieldset": {
-                borderColor: "#7c39ee",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "#7c39ee",
-              },
+            "&:hover fieldset": {
+              borderColor: "#7c39ee",
+            },
+            "&.Mui-focused fieldset": {
+              borderColor: "#7c39ee",
             },
           },
         },
       },
     },
-  }]
-])
-
-export const getTheme = (mode: ThemeMode) => {
-  return theme.get(mode)
-}
+  },
+})
