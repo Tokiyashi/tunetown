@@ -1,29 +1,12 @@
-import React from "react"
-import { backendUrl } from "@/common/constants/url"
-import axios from "axios"
-import { Button } from "@mui/material"
-import { nanoid } from "@reduxjs/toolkit"
-import { store } from "@/store"
-import List from "./List"
-import Page from "@/components/Page"
+import React from 'react';
+import PageWithTitle from "@/components/PageWithTitle";
 
 const PlaylistsPage = () => {
-  async function handleCreatePlaylist() {
-    await axios.post(backendUrl + "/playlists", {
-      name: nanoid(),
-      creatorId: store.getState().user.currentUser._id,
-      allTracks: [],
-    })
-  }
-
   return (
-    <Page title="Плейлисты">
-      <Button variant="contained" onClick={handleCreatePlaylist}>
-        Создать плейлист
-      </Button>
-      <List />
-    </Page>
-  )
-}
+    <PageWithTitle title='Плейлисты'>
+      фыв
+    </PageWithTitle>
+  );
+};
 
-export default PlaylistsPage
+export default PlaylistsPage;

@@ -1,11 +1,11 @@
-import RoomList from "./RoomList"
+import RoomList from './RoomList';
 
 const MyRoomsPage = () => {
   return (
     <div>
-      <RoomList />
+      <RoomList/>
     </div>
-  )
-}
+  );
+};
 
-export default MyRoomsPage
+export default MyRoomsPage;
