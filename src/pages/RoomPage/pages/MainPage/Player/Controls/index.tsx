@@ -1,10 +1,6 @@
-import React from 'react';
+import React from "react"
 const Controls = () => {
+  return <div></div>
+}
 
-  return (
-    <div>
-    </div>
-  );
-};
-
-export default Controls;
+export default Controls

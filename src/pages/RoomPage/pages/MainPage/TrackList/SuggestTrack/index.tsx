@@ -1,15 +1,15 @@
-import React from 'react';
-import {Button} from "@mui/material";
-import {useNavigate} from "react-router-dom";
+import React from "react"
+import { Button } from "@mui/material"
+import { useNavigate } from "react-router-dom"
 
 const SuggestTrack = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
-    <Button onClick={() => navigate('../suggest')} variant='contained'>
+    <Button onClick={() => navigate("../suggest")} variant="contained">
       Предложить трек!
     </Button>
-  );
-};
+  )
+}
 
-export default SuggestTrack;
+export default SuggestTrack
