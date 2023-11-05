@@ -1,14 +1,14 @@
-import React from "react"
-import MobileSidebar from "./MobileSidebar"
-import DefaultSidebar from "./DefaultSidebar"
+import React from 'react';
+import MobileSidebar from './MobileSidebar';
+import DefaultSidebar from './DefaultSidebar';
 
 const Sidebar = () => {
   return (
     <>
-      <MobileSidebar />
-      <DefaultSidebar />
+      <MobileSidebar/>
+      <DefaultSidebar/>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

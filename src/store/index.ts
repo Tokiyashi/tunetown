@@ -1,10 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit"
-import playerReducer from "./slices/playerSlice"
-import trackListReducer from "./slices/trackListSlice"
-import roomReducer from "./slices/roomSlice"
-import userReducer from "./slices/userSlice"
-import modeReducer from "./slices/modeSlicet"
-import { roomMiddleware } from "@/store/middlewares"
+import { configureStore } from '@reduxjs/toolkit';
+import playerReducer from './slices/playerSlice';
+import trackListReducer from './slices/trackListSlice';
+import roomReducer from './slices/roomSlice';
+import userReducer from './slices/userSlice';
+import { roomMiddleware } from '@/store/middlewares';
 
 export const store = configureStore({
   reducer: {
@@ -12,12 +11,11 @@ export const store = configureStore({
     trackList: trackListReducer,
     room: roomReducer,
     user: userReducer,
-    mode: modeReducer,
   },
   devTools: true,
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(roomMiddleware),
-})
+});
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

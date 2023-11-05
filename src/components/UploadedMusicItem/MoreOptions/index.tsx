@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 
 const MoreOptions = () => {
   // const addInQueue = async () => {
@@ -26,7 +26,7 @@ const MoreOptions = () => {
       {/*  </PopoverContent>*/}
       {/*</Popover>*/}
     </div>
-  )
-}
+  );
+};
 
-export default MoreOptions
+export default MoreOptions;
