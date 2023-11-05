@@ -42,7 +42,7 @@ const Volume = ({ onChange }: Props) => {
     <div className="justify-center items-center overflow-hidden w-full h-1/5 gap-2 flex">
       <Icon className="h-full w-auto" />
       <input
-        className="accent-main w-1/2"
+        className="w-1/2"
         type="range"
         value={currentValue.toString()}
         onChange={wrapNumberInput(handleCurrentValueChange)}

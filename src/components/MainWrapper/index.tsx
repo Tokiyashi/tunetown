@@ -5,7 +5,7 @@ import DefaultSidebar from "@/components/Sidebar/DefaultSidebar"
 
 const MainWrapper = () => {
   return (
-    <div className="min-h-screen overflow-hidden max-h-screen text-white flex min-w-screen bg-app-bg">
+    <div className="min-h-screen overflow-hidden max-h-screen flex min-w-screen">
       <DefaultSidebar />
       <div className="flex w-full overflow-auto relative flex-col">
         <Header />
