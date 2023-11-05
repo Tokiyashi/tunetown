@@ -1,27 +1,20 @@
-import { PaletteMode } from "@mui/material"
+import { createTheme } from "@mui/material"
 
-export const getTheme = (mode: PaletteMode) => ({
+export const theme = createTheme({
   typography: {
     fontFamily: '"Comfortaa", cursive',
   },
   palette: {
-    mode,
-    ...(mode === "dark")
-    ? {
-      primary: {
-        main: "#7c39ee",
-      },
-      background: {
-        default: "#24242C",
-        paper: "#24242C",
-      },
-      secondary: {
-          main: "#ffffff",
-      },
-    }
-    : {
-
-    }
+    primary: {
+      main: "#7c39ee",
+    },
+    background: {
+      default: "#24242C",
+      paper: "#24242C",
+    },
+    secondary: {
+      main: "#ffffff",
+    },
   },
   components: {
     MuiInputBase: {

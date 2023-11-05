@@ -7,7 +7,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded"
 const MobileSidebar = () => {
   const [show, setShow] = useState(false)
 
-  return ( 
+  return (
     <div className="w-min md:hidden inline">
       <IconButton
         size="large"
