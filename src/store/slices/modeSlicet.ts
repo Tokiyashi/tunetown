@@ -1,12 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { PaletteMode } from "@mui/material"
+import { createSlice } from "@reduxjs/toolkit"
+import { ThemeMode } from "@/common/enums/themeMode";
 
 type ModeState = {
-  mode: PaletteMode
+  mode: ThemeMode
 }
 
 const initialState: ModeState = {
-  mode: "dark"
+  mode: ThemeMode.DarkTheme
 };
 
 export const modeSlice = createSlice({
@@ -14,7 +14,7 @@ export const modeSlice = createSlice({
   initialState,
   reducers: {
     changeMode: (state) => {
-      state.mode = state.mode === "dark" ? "light" : "dark"; 
+      state.mode = state.mode === ThemeMode.DarkTheme ? ThemeMode.LightTheme : ThemeMode.DarkTheme; 
     }
   }
 })

@@ -1,18 +1,19 @@
+import { BorderRadiuses } from "@/common/enums/borderRadiuses";
 import { Switch, styled } from "@mui/material"
 
 export const ThemeSwitch = styled(Switch)(({ theme }) => ({
-  width: 48,
-  height: 34,
-  padding: 7,
+  width: "3rem",
+  height: "2.125rem",
+  padding: "0.438rem",
   '& .MuiSwitch-switchBase': {
-    margin: '7px 0px',
+    margin: "0.438rem 0rem",
     padding: 0,
-    transform: 'translateX(6px)',
+    transform: 'translateX(0.375rem)',
     '&.Mui-checked': {
       color: '#fff',
-      transform: 'translateX(22px)',
+      transform: 'translateX(1.375rem)',
       '& .MuiSwitch-thumb:before': {
-        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
+        backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
           '#fff',
         )}" d="M13.589 21.659c-3.873 1.038-8.517-.545-10.98-3.632a1 1 0 0 1 .751-1.623c3.984-.118 6.662-1.485 8.17-4.098 1.51-2.613 1.354-5.616-.535-9.125a1 1 0 0 1 1.03-1.463c3.904.59 7.597 3.82 8.635 7.694 1.43 5.334-1.737 10.818-7.071 12.247z"/></svg>')`,
       },
@@ -20,8 +21,8 @@ export const ThemeSwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-thumb': {
     backgroundColor: theme.palette.mode === 'dark' ? '#7c39ee' : '#001e3c',
-    width: 20,
-    height: 20,
+    width: "1.25rem",
+    height: "1.25rem",
     '&:before': {
       content: "''",
       position: 'absolute',
@@ -39,6 +40,6 @@ export const ThemeSwitch = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-track': {
     opacity: 1,
     backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
-    borderRadius: 20 / 2,
+    borderRadius: BorderRadiuses.xl,
   },
 }));
