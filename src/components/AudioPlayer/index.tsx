@@ -1,33 +1,33 @@
-import {useSelector} from 'react-redux';
-import {RootState} from '@/store';
-import React, {useRef} from 'react';
-import TrackInfo from '@/components/AudioPlayer/TrackInfo';
-import Buttons from './Buttons';
-import {useListenPause} from '@/utils/hooks/useListenPause';
-import {goToNextTrack} from '@/utils/playerActions/goToNextTrack';
+import { useSelector } from "react-redux"
+import { RootState } from "@/store"
+import React, { useRef } from "react"
+import TrackInfo from "@/components/AudioPlayer/TrackInfo"
+import Buttons from "./Buttons"
+import { useListenPause } from "@/utils/hooks/useListenPause"
+import { goToNextTrack } from "@/utils/playerActions/goToNextTrack"
+import Container from "./styles/Container"
 
 const AudioPlayer = () => {
-  const {currentTrack, audioSrc} = useSelector(
+  const { currentTrack, audioSrc } = useSelector(
     (state: RootState) => state.player
-  );
+  )
 
-  const audioRef = useRef<HTMLAudioElement>(null);
-  useListenPause(audioRef);
+  const audioRef = useRef<HTMLAudioElement>(null)
+  useListenPause(audioRef)
 
   async function handleEnded() {
     if (!audioRef.current) {
-      return;
+      return
     }
-    goToNextTrack();
+    goToNextTrack()
   }
 
   if (!currentTrack) {
-    return <></>;
+    return <></>
   }
 
   return (
-    <div
-      className="w-full overflow-hidden flex-col rounded-2xl h-full items-center justify-between flex bottom-5 bg-black-rgba">
+    <Container>
       <audio
         onEnded={handleEnded}
         autoPlay
@@ -35,10 +35,10 @@ const AudioPlayer = () => {
         title="asdasd"
         src={audioSrc}
       />
-      <TrackInfo currentTrack={currentTrack}/>
-      <Buttons audioRef={audioRef}/>
-    </div>
-  );
-};
+      <TrackInfo currentTrack={currentTrack} />
+      <Buttons audioRef={audioRef} />
+    </Container>
+  )
+}
 
-export default AudioPlayer;
+export default AudioPlayer

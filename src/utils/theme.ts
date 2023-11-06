@@ -1,7 +1,12 @@
-import {createTheme} from "@mui/material";
+import { ThemeMode } from "@/common/enums/themeMode"
+import { darkTheme } from "@/common/constants/darkTheme"
+import { lightTheme } from "@/common/constants/lightTheme"
 
-export const theme = createTheme({
-  typography: {
-    fontFamily: '"Comfortaa", cursive',
-  },
-});
+const theme = new Map([
+  [ThemeMode.DarkTheme, darkTheme],
+  [ThemeMode.LightTheme, lightTheme],
+])
+
+export const getTheme = (mode: ThemeMode) => {
+  return theme.get(mode)
+}
