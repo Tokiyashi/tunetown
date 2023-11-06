@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Link, Typography, Switch, styled } from "@mui/material"
+import { Button, Link, Typography } from "@mui/material"
 import { RootState, store } from "@/store"
 import { setUser } from "@/store/slices/userSlice"
 import { DEFAULT_USER } from "@/common/constants/defaultUser"
@@ -14,7 +14,10 @@ const UserMenu = () => {
     <>
       {currentUser._id ? (
         <div className="flex items-center gap-4">
-          <ThemeSwitch defaultChecked onChange={() => ChangeMode()}></ThemeSwitch>
+          <ThemeSwitch
+            defaultChecked
+            onChange={() => ChangeMode()}
+          ></ThemeSwitch>
           <Typography component="h2">{currentUser.name}</Typography>
           <Button onClick={() => store.dispatch(setUser(DEFAULT_USER))}>
             Выйти
