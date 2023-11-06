@@ -8,7 +8,7 @@ import SuggestTrack from "./SuggestTrack";
 const TrackList = () => {
   const {room} = useSelector((state: RootState) => state.room);
   return (
-    <div className="flex gap-2 h-full justify-start flex-col w-full md:w-1/3">
+    <div className="flex gap-2 h-full justify-start flex-col w-full">
       {room.currentTrack && (
         <>
           <span>Сейчас играет:</span>
