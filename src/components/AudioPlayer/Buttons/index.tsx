@@ -76,7 +76,7 @@ const Buttons = ({ audioRef }: Props) => {
   ]
 
   return (
-    <div className="h-full bg-card-bg justify-between flex-col items-center w-full flex">
+    <div className="h-full justify-between flex-col items-center w-full flex">
       <Timeline audioRef={audioRef} onChange={handleCurrentTimeChange} />
       <div className="flex justify-between h-1/3 overflow-hidden w-5/6">
         {playerButtons.map((item, index) => (

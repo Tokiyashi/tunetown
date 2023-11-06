@@ -2,6 +2,7 @@ import React from "react"
 import { Room } from "@/common/types/room"
 import { Link } from "react-router-dom"
 import { Button } from "@mui/material"
+import Container from "./styles/Container"
 
 type Props = {
   item: Room
@@ -12,7 +13,7 @@ const RoomItem = ({ item, onDelete }: Props) => {
   const listeningNow = item.usersOnline.length
 
   return (
-    <div className="gap-2 p-3 max-h-20 rounded-lg justify-between w-full bg-card-bg flex align-bottom">
+    <Container>
       <div className="flex gap-10">
         {item.name}
         {!!listeningNow && (
@@ -22,12 +23,12 @@ const RoomItem = ({ item, onDelete }: Props) => {
         )}
       </div>
       <div className="flex gap-2 items-center">
-        <Link to={"/room/" + item._id}>Перейти</Link>
+        <Link to={"/room/" + item._id + "/main"}>Перейти</Link>
         <Button color="error" onClick={() => onDelete(item._id)}>
           Удалить
         </Button>
       </div>
-    </div>
+    </Container>
   )
 }
 

@@ -1,19 +1,13 @@
-import Player from "./Player"
 import TrackList from "./TrackList"
 import React from "react"
 import NavigationItems from "@/pages/RoomPage/NavigationItems"
 
 const MainPage = () => {
   return (
-    <div className="min-h-full h-min flex gap-5 justify-start">
-      <div className="md:flex hidden gap-2 flex-col w-full">
-        <Player />
-        <div className="flex h-1/5 gap-3 ">
-          <NavigationItems />
-          {/*<UserList />*/}
-        </div>
-      </div>
+    <div className="min-h-full h-min flex-col items-center w-full flex md:w-1/3 m-auto gap-5 justify-start">
       <TrackList />
+      <NavigationItems />
+      {/*<UserList />*/}
     </div>
   )
 }

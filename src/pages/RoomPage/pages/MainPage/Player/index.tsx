@@ -9,7 +9,7 @@ const Player = () => {
   const { currentTrack } = useSelector((state: RootState) => state.room.room)
 
   return (
-    <div className="items-center h-full rounded-2xl bg-card-bg flex flex-col justify-center w-full">
+    <div className="items-center h-full rounded-2xl flex flex-col justify-center w-full">
       <FlexFont>{currentTrack?.title}</FlexFont>
       <FlexFont>{currentTrack?.artistName}</FlexFont>
       <Controls />

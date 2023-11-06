@@ -24,7 +24,7 @@ const Room = () => {
   return (
     <div className="h-full w-full flex justify-center items-start">
       <div className="w-full md:flex-row md:w-2/3 flex-col flex items-center gap-6">
-        <div className="flex w-1/2 flex-col h-full gap-4 bg-card-bg rounded-2xl">
+        <div className="flex w-1/2 flex-col h-full gap-4  rounded-2xl">
           <img
             alt="Band"
             src={theBandParty}
@@ -39,7 +39,7 @@ const Room = () => {
           </Button>
         </div>
         или
-        <div className="flex flex-col w-1/2 h-full gap-4 bg-card-bg rounded-2xl">
+        <div className="flex flex-col w-1/2 h-full gap-4  rounded-2xl">
           <img
             alt="Band"
             src={theBandMusician}

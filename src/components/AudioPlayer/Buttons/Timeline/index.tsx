@@ -1,6 +1,6 @@
 import React, { RefObject, useEffect, useState } from "react"
 import { convertToMinutes } from "@/utils/convertToMinutes"
-import { wrapNumberInput } from "@/utils/inputWrappers"
+import { Slider, useTheme } from "@mui/material"
 
 type Props = {
   audioRef: RefObject<HTMLAudioElement>
@@ -10,6 +10,7 @@ type Props = {
 const Timeline = ({ audioRef, onChange }: Props) => {
   const [currentTimeProgress, setCurrentTimeProgress] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
+  const theme = useTheme()
   const handleCurrentTimeChange = (value: number) => {
     if (!audioRef.current) {
       return
@@ -35,10 +36,11 @@ const Timeline = ({ audioRef, onChange }: Props) => {
 
   return (
     <div className="w-full flex flex-col">
-      <input
-        type="range"
+      <Slider
         value={currentTimeProgress || 0}
-        onChange={wrapNumberInput(handleCurrentTimeChange)}
+        onChange={(event, newValue) =>
+          handleCurrentTimeChange(newValue as number)
+        }
       />
       <div className="w-full flex justify-between">
         <h3>{convertToMinutes(currentTime)}</h3>

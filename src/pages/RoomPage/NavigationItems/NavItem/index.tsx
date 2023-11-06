@@ -11,7 +11,7 @@ type Props = {
 
 const NavItem = ({ label, href }: Props) => {
   return (
-    <Link className="w-1/4" to={href}>
+    <Link className="w-full" to={href}>
       <Tooltip title="Список из всех треков которые были загружены в эту комнату">
         <Card className="w-full h-full">
           <CardMedia

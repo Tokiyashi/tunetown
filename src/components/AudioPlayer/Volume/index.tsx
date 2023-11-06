@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { wrapNumberInput } from "@/utils/inputWrappers"
 import { VolumeTypes } from "@/common/enums/volumeTypes"
 import VolumeOffRoundedIcon from "@mui/icons-material/VolumeOffRounded"
 import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded"
 import VolumeDownRoundedIcon from "@mui/icons-material/VolumeDownRounded"
+import { Slider } from "@mui/material"
 
 type Props = {
   onChange: (value: number) => void
@@ -41,11 +41,12 @@ const Volume = ({ onChange }: Props) => {
   return (
     <div className="justify-center items-center overflow-hidden w-full h-1/5 gap-2 flex">
       <Icon className="h-full w-auto" />
-      <input
-        className="w-1/2"
-        type="range"
-        value={currentValue.toString()}
-        onChange={wrapNumberInput(handleCurrentValueChange)}
+      <Slider
+        sx={{ width: "70%" }}
+        value={currentValue}
+        onChange={(event, newValue) =>
+          handleCurrentValueChange(newValue as number)
+        }
       />
     </div>
   )

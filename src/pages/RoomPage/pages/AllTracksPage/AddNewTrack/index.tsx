@@ -38,13 +38,15 @@ const AddNewTrack = () => {
 
   return (
     <div className="flex items-center">
-      <div className="gap-2 p-3 max-h-20 rounded-lg justify-between w-full bg-card-bg flex align-bottom">
+      <div className="gap-2 p-3 max-h-20 rounded-lg justify-between w-full flex align-bottom">
         <Input
           value={search}
           className="flex w-3/5"
           onChange={wrapTextInput(setSearch)}
         />
-        <Button onClick={handleAddTrack}>трек из Deezer</Button>
+        <Button variant="contained" onClick={handleAddTrack}>
+          трек из Deezer
+        </Button>
       </div>
       {/*<div*/}
       {/*  className="gap-2 p-3 border-dashed max-h-24 border-2 border-main rounded-lg justify-center flex-col w-full bg-card-bg flex items-center">*/}

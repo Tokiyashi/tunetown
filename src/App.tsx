@@ -18,7 +18,7 @@ import PlaylistsPage from "@/pages/PlayListsPage"
 import SuggestTrackPage from "@/pages/RoomPage/pages/SuggestTrackPage"
 import PlaylistPage from "@/pages/PlaylistPage"
 import MainWrapper from "@/components/MainWrapper"
-import CustomeThemeProvider from "./components/CustomThemeProvider"
+import CustomThemeProvider from "./components/CustomThemeProvider"
 
 const router = createBrowserRouter([
   {
@@ -89,10 +89,10 @@ function App() {
 
   return (
     <StoreProvider>
-      <CustomeThemeProvider>
+      <CustomThemeProvider>
         <CssBaseline />
-        <RouterProvider router={router} />  
-      </CustomeThemeProvider>
+        <RouterProvider router={router} />
+      </CustomThemeProvider>
     </StoreProvider>
   )
 }

@@ -3,16 +3,12 @@ import { BorderRadiuses } from "@/common/enums/borderRadiuses"
 
 const Container = styled(Box)`
   display: flex;
+  gap: 1rem;
+  max-height: 7rem;
+  padding: 1rem;
   background-color: ${({ theme }) => theme.palette.background.paper};
-  align-items: center;
-  padding: 0.4rem;
-  border-radius: ${BorderRadiuses.lg};
+  border-radius: ${BorderRadiuses.xl};
   justify-content: space-between;
-  cursor: pointer;
-  border: 0.2rem solid ${({ theme }) => theme.palette.background.paper};
-
-  &:hover {
-    border-color: ${({ theme }) => theme.palette.primary.main};
-  }
+  align-items: center;
 `
 export default Container

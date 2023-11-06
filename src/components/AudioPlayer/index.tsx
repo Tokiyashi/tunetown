@@ -5,6 +5,7 @@ import TrackInfo from "@/components/AudioPlayer/TrackInfo"
 import Buttons from "./Buttons"
 import { useListenPause } from "@/utils/hooks/useListenPause"
 import { goToNextTrack } from "@/utils/playerActions/goToNextTrack"
+import Container from "./styles/Container"
 
 const AudioPlayer = () => {
   const { currentTrack, audioSrc } = useSelector(
@@ -26,7 +27,7 @@ const AudioPlayer = () => {
   }
 
   return (
-    <div className="w-full overflow-hidden flex-col rounded-2xl h-full items-center justify-between flex bottom-5 bg-black-rgba">
+    <Container>
       <audio
         onEnded={handleEnded}
         autoPlay
@@ -36,7 +37,7 @@ const AudioPlayer = () => {
       />
       <TrackInfo currentTrack={currentTrack} />
       <Buttons audioRef={audioRef} />
-    </div>
+    </Container>
   )
 }
 

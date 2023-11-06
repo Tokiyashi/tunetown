@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { responsiveText } from "@/utils/mixins/responsiveText"
+import Container from "./styles/Container"
 
 type Props = {
   item: { label: string; href: string }
@@ -10,9 +11,9 @@ const MenuButton = ({ item }: Props) => {
 
   return (
     <Link to={href}>
-      <div className="w-full h-min flex hover:bg-dark-main rounded-2xl overflow-hidden p-6">
+      <Container>
         <span className={`${responsiveText}`}>{label}</span>
-      </div>
+      </Container>
     </Link>
   )
 }
