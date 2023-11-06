@@ -1,6 +1,6 @@
 import React, { RefObject, useEffect, useState } from "react"
 import { convertToMinutes } from "@/utils/convertToMinutes"
-import { Slider, useTheme } from "@mui/material"
+import { Slider } from "@mui/material"
 
 type Props = {
   audioRef: RefObject<HTMLAudioElement>
@@ -10,7 +10,6 @@ type Props = {
 const Timeline = ({ audioRef, onChange }: Props) => {
   const [currentTimeProgress, setCurrentTimeProgress] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
-  const theme = useTheme()
   const handleCurrentTimeChange = (value: number) => {
     if (!audioRef.current) {
       return
