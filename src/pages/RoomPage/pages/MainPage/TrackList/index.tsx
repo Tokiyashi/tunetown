@@ -4,11 +4,13 @@ import React from "react"
 import UploadedMusicItem from "@/components/UploadedMusicItem"
 import MusicList from "@/components/MusicList"
 import SuggestTrack from "./SuggestTrack"
+import {Box, Typography} from "@mui/material";
 
 const TrackList = () => {
   const { room } = useSelector((state: RootState) => state.room)
   return (
-    <div className="flex gap-2 h-full justify-start flex-col w-full md:w-1/3">
+      <Box height="100%" width="100%" display="flex" sx={{justifyContent: 'space-between', flexDirection:'column'}}>
+    <div className="flex gap-2 justify-start flex-col w-full">
       {room.currentTrack && (
         <>
           <span>Сейчас играет:</span>
@@ -21,8 +23,10 @@ const TrackList = () => {
           <MusicList disablePlayPause items={room.trackQueue} />
         </>
       )}
-      <SuggestTrack />
+      {room.trackQueue.length < 6 && <Typography> Музыка вое-вот закончится, но не переживайте, скоро плейлсит начнется сначала!⭐ </Typography>}
     </div>
+    <SuggestTrack />
+      </Box>
   )
 }
 

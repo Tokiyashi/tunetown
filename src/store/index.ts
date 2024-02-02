@@ -3,7 +3,9 @@ import playerReducer from "./slices/playerSlice"
 import trackListReducer from "./slices/trackListSlice"
 import roomReducer from "./slices/roomSlice"
 import userReducer from "./slices/userSlice"
+import playlistsReducer from "./slices/playlistsSlice"
 import { roomMiddleware } from "@/store/middlewares"
+
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +13,7 @@ export const store = configureStore({
     trackList: trackListReducer,
     room: roomReducer,
     user: userReducer,
+    playlist: playlistsReducer
   },
   devTools: true,
   middleware: (getDefaultMiddleware) =>

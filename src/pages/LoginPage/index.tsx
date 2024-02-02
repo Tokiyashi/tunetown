@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from "react"
 import { wrapTextInput } from "@/utils/inputWrappers"
 import axios from "axios"

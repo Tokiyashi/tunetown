@@ -7,7 +7,7 @@ import { useSelector } from "react-redux"
 
 const UserMenu = () => {
   const { currentUser } = useSelector((state: RootState) => state.user)
-
+  console.log(currentUser)
   return (
     <>
       {currentUser._id ? (

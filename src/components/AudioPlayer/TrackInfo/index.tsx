@@ -7,7 +7,7 @@ type Props = {
 }
 const TrackInfo = ({ currentTrack }: Props) => {
   return (
-    <div className="h-full items-center justify-center w-full flex gap-2">
+    <div className="h-full items-center justify-center w-1/3 flex gap-2 overflow-hidden">
       {/*<Image*/}
       {/*  radius="lg"*/}
       {/*  className="h-1/3 hidden md:block md:h-full"*/}
@@ -15,8 +15,8 @@ const TrackInfo = ({ currentTrack }: Props) => {
       {/*  src={currentTrack?.image}*/}
       {/*/>*/}
       <div className="flex flex-col justify-center items-center overflow-hidden">
-        <b className={`text-2xl ${responsiveText}`}>{currentTrack?.title}</b>
-        <span className={`font-thin text-xl ${responsiveText}`}>
+        <b className={`text-md ${responsiveText}`}>{currentTrack?.title}</b>
+        <span className={`font-thin text-sm ${responsiveText}`}>
           {currentTrack?.artistName}
         </span>
       </div>

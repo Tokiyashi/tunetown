@@ -5,6 +5,7 @@ import TrackInfo from "@/components/AudioPlayer/TrackInfo"
 import Buttons from "./Buttons"
 import { useListenPause } from "@/utils/hooks/useListenPause"
 import { goToNextTrack } from "@/utils/playerActions/goToNextTrack"
+import Volume from "@/components/AudioPlayer/Volume";
 
 const AudioPlayer = () => {
   const { currentTrack, audioSrc } = useSelector(
@@ -21,12 +22,19 @@ const AudioPlayer = () => {
     goToNextTrack()
   }
 
+    function handleVolumeChange(volume: number) {
+        if (!audioRef.current) {
+            return;
+        }
+        audioRef.current.volume = volume;
+    }
+
   if (!currentTrack) {
     return <></>
   }
 
   return (
-    <div className="w-full overflow-hidden flex-col rounded-2xl h-full items-center justify-between flex bottom-5 bg-black-rgba">
+    <div className="w-full overflow-hidden  bg-card-bg  max-w-full rounded-2xl h-full items-center justify-between flex bottom-5 bg-black-rgba">
       <audio
         onEnded={handleEnded}
         autoPlay
@@ -36,6 +44,7 @@ const AudioPlayer = () => {
       />
       <TrackInfo currentTrack={currentTrack} />
       <Buttons audioRef={audioRef} />
+      <Volume onChange={handleVolumeChange}/>
     </div>
   )
 }

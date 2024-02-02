@@ -1,17 +1,20 @@
-import React from "react"
+import React, {useState} from "react"
 import Buttons from "@/components/Sidebar/Buttons"
-import AudioPlayer from "@/components/AudioPlayer"
-import { Typography } from "@mui/material"
+import {Box, Drawer, IconButton, Typography} from "@mui/material"
+import {MenuOpen} from "@mui/icons-material"
 
 const DefaultSidebar = () => {
+  const [open, setOpen]= useState(false)
   return (
-    <div className="min-w-1/6 md:flex max-h-screen p-5 hidden flex-col justify-between min-h-full">
-      <div>
-        <Typography fontSize="1.8rem">Tune Town</Typography>
+      <Box width="3rem">
+        <IconButton onClick={()=>setOpen(true)} ><MenuOpen sx={{height:'3rem', width:'3rem'}} color="secondary"/></IconButton>
+        <Drawer onClick={()=>setOpen(false)} open={open} onClose={()=>setOpen(false)}>
+          <Box display="flex" p='1rem' sx={{flexDirection:'column'}}>
+        <Typography color='secondary' fontSize="1.8rem">Tune Town</Typography>
         <Buttons />
-      </div>
-      <AudioPlayer />
-    </div>
+          </Box>
+        </Drawer>
+      </Box>
   )
 }
 

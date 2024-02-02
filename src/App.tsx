@@ -19,6 +19,7 @@ import PlaylistsPage from "@/pages/PlayListsPage"
 import SuggestTrackPage from "@/pages/RoomPage/pages/SuggestTrackPage"
 import PlaylistPage from "@/pages/PlaylistPage"
 import MainWrapper from "@/components/MainWrapper"
+import HomePage from "@/pages/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage />,
+      },
+      {
+        path: "",
+        element: <HomePage />,
       },
       {
         path: "playlists",

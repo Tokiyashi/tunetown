@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Box, TextField } from "@mui/material"
+import {Box, TextField} from "@mui/material"
 import { Playlist } from "@/common/types/playlist"
 import { wrapTextInput } from "@/utils/inputWrappers"
 import { updatePlaylist } from "@/api/playlist"

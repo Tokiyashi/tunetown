@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { backendUrl } from "@/common/constants/url"
-import { store } from "@/store"
+import React, { useEffect } from "react"
+import {AppDispatch, RootState} from "@/store"
 import PlaylistItem from "./PlaylistItem"
-import { Playlist } from "@/common/types/playlist"
 import Container from "./styles/Container"
+import {useDispatch, useSelector} from "react-redux";
+import { fetchPlaylists } from "@/store/slices/playlistsSlice";
 
 const List = () => {
-  const [playlists, setPlaylists] = useState<Playlist[]>([])
-
-  async function init() {
-    const response = await axios.get(
-      backendUrl +
-        "/playlists?creatorId=" +
-        store.getState().user.currentUser._id
-    )
-
-    setPlaylists(response.data)
-  }
+  const dispatch: AppDispatch = useDispatch()
+  const user = useSelector((state: RootState )=> state.user.currentUser)
+  const playlists = useSelector((state: RootState )=> state.playlist.playlists)
 
   useEffect(() => {
-    void init()
-  }, [])
+    dispatch(fetchPlaylists(user._id))
+    }, [])
 
   return (
     <Container>

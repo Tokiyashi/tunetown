@@ -2,6 +2,8 @@ import React from "react"
 import Header from "@/components/Header"
 import { Outlet } from "react-router-dom"
 import DefaultSidebar from "@/components/Sidebar/DefaultSidebar"
+import AudioPlayer from "@/components/AudioPlayer";
+import {Box} from "@mui/material";
 
 const MainWrapper = () => {
   return (
@@ -12,6 +14,10 @@ const MainWrapper = () => {
         <main className="flex w-full h-full flex-col overflow-auto p-5">
           <Outlet />
         </main>
+          <Box>
+          <AudioPlayer/>
+          </Box>
+
       </div>
     </div>
   )

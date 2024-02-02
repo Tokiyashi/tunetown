@@ -4,7 +4,6 @@ import {RootState, store} from '@/store';
 import {setCurrentTrack} from '@/store/slices/playerSlice';
 import {goToNextTrack} from '@/utils/playerActions/goToNextTrack';
 import Timeline from './Timeline';
-import Volume from '@/components/AudioPlayer/Volume';
 import {IconButton} from "@mui/material";
 import SkipPreviousRoundedIcon from '@mui/icons-material/SkipPreviousRounded';
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
@@ -38,12 +37,7 @@ const Buttons = ({audioRef}: Props) => {
     audioRef.current.currentTime = currentTime;
   }
 
-  function handleVolumeChange(volume: number) {
-    if (!audioRef.current) {
-      return;
-    }
-    audioRef.current.volume = volume;
-  }
+
 
   async function handleFinishTrack() {
     goToNextTrack();
@@ -77,8 +71,7 @@ const Buttons = ({audioRef}: Props) => {
   ];
 
   return (
-    <div className="h-full bg-card-bg justify-between flex-col items-center w-full flex">
-      <Timeline audioRef={audioRef} onChange={handleCurrentTimeChange}/>
+    <div className="h-full justify-between flex-col p-3 items-center w-1/3 flex">
       <div className="flex justify-between h-1/3 overflow-hidden w-5/6">
         {playerButtons.map((item, index) => (
           <IconButton
@@ -90,7 +83,7 @@ const Buttons = ({audioRef}: Props) => {
           </IconButton>
         ))}
       </div>
-      <Volume onChange={handleVolumeChange}/>
+      <Timeline audioRef={audioRef} onChange={handleCurrentTimeChange}/>
     </div>
   );
 };

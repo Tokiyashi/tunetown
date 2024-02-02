@@ -11,7 +11,7 @@ const MenuButton = ({ item }: Props) => {
   return (
     <Link to={href}>
       <div className="w-full h-min flex hover:bg-dark-main rounded-2xl overflow-hidden p-6">
-        <span className={`${responsiveText}`}>{label}</span>
+        <span className={`${responsiveText} text-white`}>{label}</span>
       </div>
     </Link>
   )

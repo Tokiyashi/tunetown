@@ -14,9 +14,6 @@ export const roomSlice = createSlice({
   name: "trackList",
   initialState,
   reducers: {
-    // setQueue: (state, action) => {
-    //   state.queue = action.payload
-    // },
     // addNewTrack: (state, action) => {
     //   state.queue = [...state.queue, action.payload]
     // },

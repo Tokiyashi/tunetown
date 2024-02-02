@@ -36,7 +36,7 @@ const Buttons = () => {
       {Object.entries(menuItems).map((item) => {
         const [menuTitle, menuButtons] = item
         return (
-          <div className="flex flex-col gap-4" key={menuTitle}>
+          <div className="flex text-white flex-col gap-4" key={menuTitle}>
             <div>{menuTitle}</div>
             <div>
               {menuButtons.map((button) => (

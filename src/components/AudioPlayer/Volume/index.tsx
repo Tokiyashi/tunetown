@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { wrapNumberInput } from "@/utils/inputWrappers"
 import { VolumeTypes } from "@/common/enums/volumeTypes"
 import VolumeOffRoundedIcon from "@mui/icons-material/VolumeOffRounded"
 import VolumeUpRoundedIcon from "@mui/icons-material/VolumeUpRounded"
 import VolumeDownRoundedIcon from "@mui/icons-material/VolumeDownRounded"
+import {Slider} from "@mui/material";
 
 type Props = {
   onChange: (value: number) => void
@@ -19,7 +19,12 @@ const Volume = ({ onChange }: Props) => {
   const [currentValue, setCurrentValue] = useState(
     Number(localStorage.getItem("volume") || 50)
   )
-  const handleCurrentValueChange = (value: number) => {
+  const handleCurrentValueChange = (value: number|number[]) => {
+
+    if (Array.isArray(value)){
+      return
+    }
+
     const newValue = Math.floor(value)
     const formattedValue = newValue / 100
     setCurrentValue(newValue)
@@ -39,13 +44,14 @@ const Volume = ({ onChange }: Props) => {
   }, [])
 
   return (
-    <div className="justify-center items-center overflow-hidden w-full h-1/5 gap-2 flex">
+    <div className="justify-center items-center overflow-hidden w-1/3 p-3 h-1/2 gap-2 flex">
       <Icon className="h-full w-auto" />
-      <input
+      <Slider
+        sx={{width:'50%'}}
+        color="primary"
         className="accent-main w-1/2"
-        type="range"
-        value={currentValue.toString()}
-        onChange={wrapNumberInput(handleCurrentValueChange)}
+        value={currentValue}
+        onChange={(_, value)=>handleCurrentValueChange(value)}
       />
     </div>
   )

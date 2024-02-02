@@ -6,7 +6,7 @@ const SuggestTrack = () => {
   const navigate = useNavigate()
 
   return (
-    <Button onClick={() => navigate("../suggest")} variant="contained">
+    <Button fullWidth onClick={() => navigate("../suggest")} variant="contained">
       Предложить трек!
     </Button>
   )
