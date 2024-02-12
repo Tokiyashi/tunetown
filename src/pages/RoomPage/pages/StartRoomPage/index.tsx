@@ -8,7 +8,6 @@ import { startRoom } from "@/store/slices/roomSlice"
 import { setCurrentTrack } from "@/store/slices/playerSlice"
 import {fetchPlaylists} from "@/store/slices/playlistsSlice";
 import PlaylistsExplorerPopup from "@/components/popups/PlaylistsExplorerPopup";
-import AddNewTrack from "@/pages/RoomPage/pages/AllTracksPage/AddNewTrack";
 
 const StartRoomPage = () => {
   const { allTracks } = useSelector((state: RootState) => state.room.room)
@@ -40,7 +39,6 @@ const StartRoomPage = () => {
         </Box>
       </div>
       <div>
-        <AddNewTrack />
         <Button
           onClick={handleStartRoom}
           fullWidth

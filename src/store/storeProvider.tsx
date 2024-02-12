@@ -1,4 +1,3 @@
-"use client"
 import { store } from "@/store/index"
 import { Provider } from "react-redux"
 

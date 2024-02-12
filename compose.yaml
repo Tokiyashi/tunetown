@@ -1,0 +1,9 @@
+services:
+    admin:
+      command: npm run dev
+      build:
+        context: .
+      container_name: admin
+      ports:
+        - "3000:3000"
+        - "3010:3010"

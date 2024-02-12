@@ -81,6 +81,7 @@ const AddNewTrackButton = ({ playlist }: Props) => {
           disabled={loading}
           options={suggestedValues}
           inputValue={value}
+          renderOption={(props,option)=><span {...props} style={{color:'white'}}>{option.title}</span>}
           getOptionLabel={(option)=>option.artistName  + " - " + option.title}
           onInputChange={(_,val)=>handleInput(val)}
           renderInput={(options)=><TextField {...options} InputLabelProps={{sx: {

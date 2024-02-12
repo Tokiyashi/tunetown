@@ -11,7 +11,8 @@ const Container = styled(Box)`
   cursor: pointer;
 
   &:hover {
-    border: 0.2rem solid ${({ theme }) => theme.palette.primary.main};
+      filter: brightness(1.5);
+    //border: 0.2rem solid ${({ theme }) => theme.palette.primary.main};
   }
 `
 export default Container

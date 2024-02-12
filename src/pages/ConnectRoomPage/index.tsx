@@ -6,13 +6,14 @@ import { RootState } from "@/store"
 import theBandParty from "@/assets/icons/The Band Party.svg"
 import { Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import {nanoid} from "@reduxjs/toolkit";
 const Room = () => {
   const { currentUser } = useSelector((state: RootState) => state.user)
   const navigate = useNavigate()
 
   async function handleCreateRoom() {
     const request = await axios.post(backendUrl + "/rooms", {
-      name: "nikitaAmazingRoom",
+      name: nanoid(),
       creatorId: currentUser?._id,
     })
     const { _id } = request.data

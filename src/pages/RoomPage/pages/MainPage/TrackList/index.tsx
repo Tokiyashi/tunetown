@@ -14,7 +14,7 @@ const TrackList = () => {
       {room.currentTrack && (
         <>
           <span>Сейчас играет:</span>
-          <UploadedMusicItem item={room.currentTrack} />
+          <UploadedMusicItem hidePlayPause item={room.currentTrack} />
         </>
       )}
       {!!room.trackQueue.length && (

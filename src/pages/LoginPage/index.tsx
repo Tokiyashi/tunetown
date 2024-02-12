@@ -57,7 +57,7 @@ const LoginPage = () => {
         <Button variant="contained" onClick={handleSubmit}>
           Войти
         </Button>
-        <Link href="../registration">Создать чела</Link>
+        <Link href="../registration">Создать пользователя</Link>
       </form>
     </div>
   )

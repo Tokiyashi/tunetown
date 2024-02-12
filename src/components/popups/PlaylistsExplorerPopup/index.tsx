@@ -12,9 +12,9 @@ const PlaylistsExplorerPopup: FC<Props> = ({open, onClose}) => {
 
     return (
         <Modal open={open} onClose={onClose}>
-            <Box width='50%' margin="5rem auto" sx={{borderRadius: '0.4rem'}} bgcolor={theme.palette.background.default} height="60%">
-                <Typography color='secondary'>Выберите плейлист:</Typography>
-                <PlaylistsList/>
+            <Box width='50%' overflow='auto' margin="5rem auto" p="1rem" sx={{borderRadius: '0.4rem'}} bgcolor={theme.palette.background.default} height="60%">
+                        <Typography color='secondary'>Выберите плейлист:</Typography>
+                        <PlaylistsList/>
             </Box>
         </Modal>
     );

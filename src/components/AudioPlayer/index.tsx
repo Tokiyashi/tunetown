@@ -34,7 +34,7 @@ const AudioPlayer = () => {
   }
 
   return (
-    <div className="w-full overflow-hidden  bg-card-bg  max-w-full rounded-2xl h-full items-center justify-between flex bottom-5 bg-black-rgba">
+    <div style={{borderRadius: '2rem 2rem 0 0'}} className="w-full overflow-hidden  bg-card-bg  max-w-full h-full items-center justify-between flex bottom-5 bg-black-rgba">
       <audio
         onEnded={handleEnded}
         autoPlay

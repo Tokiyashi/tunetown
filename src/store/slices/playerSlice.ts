@@ -4,11 +4,13 @@ import { createSlice } from "@reduxjs/toolkit"
 export type PlayerState = {
   currentTrack: UploadedTrack | null
   audioSrc: string
+  openedSidebar: boolean
 }
 
 const initialState: PlayerState = {
   currentTrack: null,
   audioSrc: "",
+  openedSidebar: false
 }
 
 export const playerSlice = createSlice({
@@ -19,8 +21,11 @@ export const playerSlice = createSlice({
       state.currentTrack = action.payload
       state.audioSrc = action.payload?.url
     },
+    setOpenedSidebar: (state, action)=>{
+      state.openedSidebar = action.payload
+    }
   },
 })
 
-export const { setCurrentTrack } = playerSlice.actions
+export const { setCurrentTrack, setOpenedSidebar } = playerSlice.actions
 export default playerSlice.reducer
